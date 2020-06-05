@@ -6,7 +6,7 @@ This is Magento 2 module implements the `loading` attribute for lazyloading imag
 ### Install by composer
 
 ````
-composer require hmphu/m2-lazyload-native:1.0.1
+composer require hmphu/m2-lazyload-native:^1.0
 bin/magento module:enable HMP_LazyloadNative
 bin/magento setup:upgrade
 ````

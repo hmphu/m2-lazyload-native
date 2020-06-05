@@ -8,7 +8,6 @@ use Magento\Framework\App\Response\Http;
 use Magento\Framework\Controller\ResultInterface;
 use HMP\LazyloadNative\Helper\Data as Helper;
 
-
 class ApplyForController
 {
 	/**
@@ -18,7 +17,14 @@ class ApplyForController
      */
     private $helper;
 
-	/**
+    /**
+     * RequestHttp
+     *
+     * @var RequestHttp
+     */
+    private $request;
+
+    /**
      * Constructor.
      *
      * @param Helper $helper
