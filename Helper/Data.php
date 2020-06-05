@@ -4,7 +4,6 @@ namespace HMP\LazyloadNative\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
-use Magento\Framework\App\Response\Http;
 use DOMDocument;
 
 
@@ -35,8 +34,7 @@ class Data extends AbstractHelper
         );
     }
 
-    public function addLoadingAttribute(Http $http, $tag = 'img'){
-        $html = $http->getBody();
+    public function addLoadingAttribute($html, $tag = 'img'){
         if(!empty($html)){
             $doc = new DOMDocument();
             libxml_use_internal_errors(true);
@@ -47,7 +45,6 @@ class Data extends AbstractHelper
                 $tag->setAttribute('loading', 'lazy');
             }
             $html = $doc->saveHTML();
-            $http->setBody($html);
         }
         return $html;
     }

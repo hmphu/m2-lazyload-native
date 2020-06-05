@@ -9,7 +9,7 @@ use Magento\Framework\Controller\ResultInterface;
 use HMP\LazyloadNative\Helper\Data as Helper;
 
 
-class Apply
+class ApplyForController
 {
 	/**
      * Helper
@@ -47,8 +47,11 @@ class Apply
             return $result;
         }
 
-        $this->helper->addLoadingAttribute($response, 'img');
-
+        $html = $response->getBody();
+        if(!empty($html)){
+            $response->setBody($this->helper->addLoadingAttribute($html, 'img'));
+        }
+        
         return $result;
     }
 }
