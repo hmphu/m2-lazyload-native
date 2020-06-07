@@ -38,7 +38,7 @@ class Data extends AbstractHelper
         if(!empty($html)){
             $doc = new DOMDocument();
             libxml_use_internal_errors(true);
-            $doc->loadHTML($html, LIBXML_HTML_NOIMPLIED);
+            $doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             libxml_clear_errors();
             $tags = $doc->getElementsByTagName($tag);
             foreach ($tags as $tag) {
