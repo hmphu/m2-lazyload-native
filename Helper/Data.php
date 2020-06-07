@@ -42,10 +42,13 @@ class Data extends AbstractHelper
             libxml_clear_errors();
             $tags = $doc->getElementsByTagName($tag);
             foreach ($tags as $tag) {
-                $tag->setAttribute('loading', 'lazy');
+                if(!$tag->hasAttribute('loading')){
+                    $tag->setAttribute('loading', 'lazy');
+                }
             }
             $html = $doc->saveHTML();
         }
         return $html;
     }
 }
+
